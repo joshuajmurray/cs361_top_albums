@@ -1,9 +1,9 @@
 class AlbumApp
 
   def call(env)
-  	req = Rack::Request.new(env)
-  	path = req.path
-    if '/albums'==path
+  	request = Rack::Request.new(env)
+    
+    if request.path == '/albums'
       response_head = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
       response_body << response_head.to_s
 
