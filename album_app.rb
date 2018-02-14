@@ -12,9 +12,11 @@ class AlbumApp
         albumArray << [i + 1,  line.to_s.split(", ")[0], line.to_s.split(", ")[1].chomp.to_i]
       end
 
+      response_body << "<table><tr><th>Rank</th><th>Album Name</th><th>Date Released</th></tr>"
       albumArray.each do |album|
-        response_body << album.to_s
+        response_body << "<tr><td>" << album[0].to_s << "</td><td>" << album[1].to_s << "</td><td>" << album[2].to_s << "</td></tr>"
       end
+      response_body << "</table>"
 
       response_tail = "</body></html>"
       response_body << response_tail
