@@ -6,9 +6,17 @@ class AlbumApp
     if '/albums'==path
       response_head = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
       response_body << response_head.to_s
-      
-      albums = ['fee', 'fi', 'fo', 'funk']
-      response_body << albums.to_s
+
+      simpleArrayTest = Array.new
+      File.open("top_100_albums.txt").each do |line|
+        # response_body << line.to_s
+        simpleArrayTest << line.to_s
+      end
+
+      for albums in simpleArrayTest
+        response_body << albums
+      end
+      #response_body << albums.to_s
 
       response_tail = "</body></html>"
       response_body << response_tail
