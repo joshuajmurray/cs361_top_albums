@@ -2,10 +2,9 @@ class AlbumApp
 
   def call(env)
   	request = Rack::Request.new(env)
-    
+
     if request.path == '/albums'
-      response_head = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
-      response_body << response_head.to_s
+      response_body = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
 
       simpleArrayTest = Array.new
       File.open("top_100_albums.txt").each do |line|
@@ -14,7 +13,7 @@ class AlbumApp
       end
 
       for albums in simpleArrayTest
-        response_body << albums
+        response_body << albums.to_s
       end
       #response_body << albums.to_s
 
