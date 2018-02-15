@@ -37,7 +37,7 @@ class AlbumApp
       response_body << response_tail
       [200, {'Content-Type' => 'text/html'}, [response_body.to_s]]
     else
-      [404, {'Content-Type' => 'text/html'}, ["Unknown URL"]]
+      [404, {'Content-Type' => 'text/html'}, ["Not Found"]]
     end
   end
 end
