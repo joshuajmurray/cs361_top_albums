@@ -6,6 +6,9 @@ class AlbumApp
       response_body = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
       response_body << "<h1>Top 100 Albums of All Time</h1>"
 
+      response_body << "Sort By:<button>Rank</button><button>Title</button><button>Year</button><br><br>"
+      response_body << "<input type='text' name='highlight_num'><button>Highlight</button><br><br><br>"
+
       albumArray = Array.new
 
       File.open("top_100_albums.txt").each_with_index do |line,i|
