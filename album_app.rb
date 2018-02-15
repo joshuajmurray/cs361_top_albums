@@ -25,14 +25,14 @@ class AlbumApp
       end
 
       response_body << "<table><tr><th>Rank</th><th>Album Name</th><th>Date Released</th></tr>"
-      albumArray.each do |album|
-        response_body << "<tr><td>" << album[0].to_s << "</td><td>" << album[1].to_s << "</td><td>" << album[2].to_s << "</td></tr>"
+      albumArrayOut.each do |album|
+        response_body << "<tr><td>" << album[:rank].to_s << "</td><td>" << album[:title].to_s << "</td><td>" << album[:year].to_s << "</td></tr>"
       end
       response_body << "</table>"
 
       response_tail = "</body></html>"
       response_body << response_tail
-      
+
       [200, {'Content-Type' => 'text/html'}, [response_body.to_s]]
     else
       [404, {'Content-Type' => 'text/html'}, ["Uknown URL"]]
