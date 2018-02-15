@@ -11,7 +11,9 @@ class AlbumApp
         albumArray << { rank: i + 1,  title: line.to_s.split(", ")[0], year: line.to_s.split(", ")[1].chomp.to_i }
       end
 
-      if '/albums/title' == request.path
+      if '/albums' == request.path
+        albumArrayOut = albumArray
+      elsif '/albums/title' == request.path
         albumArrayOut = albumArray.sort_by { |o| o[:title] }
         puts "title sort"
       elsif '/albums/year' == request.path
