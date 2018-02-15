@@ -5,9 +5,8 @@ class AlbumApp
     if request.path.include? '/albums'
       response_body = "<!DOCTYPE HTML><html><head><title>Top 100 Albums</title></head><body>"
       response_body << "<h1>Top 100 Albums of All Time</h1>"
-
-      response_body << "Sort By:<button>Rank</button><button>Title</button><button>Year</button><br><br>"
-      response_body << "<input type='text' name='highlight_num'><button>Highlight</button><br><br><br>"
+      response_body << "<h2 style='display:inline'>Sort By:</h2><a href='#{request.base_url}/albums' style='margin-left:1em'><button>Rank</button></a><a href='#{request.base_url}/albums/title'><button>Title</button></a><a href='#{request.base_url}/albums/year'><button>Year</button></a><br><br>"
+      response_body << "<form method='get' action='#{request.path}'><input type='number' name='highlight'><button type='submit'>Highlight</button></form><br><br><br>"
 
       albumArray = Array.new
       albumArrayOut = Array.new
@@ -26,16 +25,19 @@ class AlbumApp
 
       response_body << "<table><tr><th>Rank</th><th>Album Name</th><th>Date Released</th></tr>"
       albumArrayOut.each do |album|
-        response_body << "<tr><td>" << album[:rank].to_s << "</td><td>" << album[:title].to_s << "</td><td>" << album[:year].to_s << "</td></tr>"
+        response_body << "<tr"
+        if request.params["highlight"] == album[:rank].to_s
+          response_body << " style='background-color:yellow'"
+        end
+        response_body << "><td>" << album[:rank].to_s << "</td><td>" << album[:title].to_s << "</td><td>" << album[:year].to_s << "</td></tr>"
       end
       response_body << "</table>"
 
       response_tail = "</body></html>"
       response_body << response_tail
-
       [200, {'Content-Type' => 'text/html'}, [response_body.to_s]]
     else
-      [404, {'Content-Type' => 'text/html'}, ["Uknown URL"]]
+      [404, {'Content-Type' => 'text/html'}, ["Unknown URL"]]
     end
   end
 end
