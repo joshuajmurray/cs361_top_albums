@@ -27,7 +27,7 @@ class AlbumApp
       albumArrayOut.each do |album|
         response_body << "<tr"
         if request.params["highlight"] == album[:rank].to_s
-          response_body << " style='background-color:yellow'"
+          response_body << " style='background-color:orange'"
         end
         response_body << "><td>" << album[:rank].to_s << "</td><td>" << album[:title].to_s << "</td><td>" << album[:year].to_s << "</td></tr>"
       end
