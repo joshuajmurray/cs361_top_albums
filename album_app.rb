@@ -1,18 +1,14 @@
 require 'sinatra'
 
 get '/' do
+  "hello world"
+end
+
+get '/title' do
   #
 end
 
-get '/albums' do
-  #
-end
-
-get '/albums/title' do
-  #
-end
-
-get '/albums/year' do
+get '/year' do
   #
 end
 
