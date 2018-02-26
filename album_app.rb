@@ -14,7 +14,7 @@ end
 
 post '/highlight' do
   @index = params[:index]
-  #highlight
+  #highlight(index)
   erb :index
 end
 
