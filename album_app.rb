@@ -4,12 +4,18 @@ get '/' do
   erb :index
 end
 
-get '/title' do
+get '/title/' do
   #
 end
 
 get '/year' do
   #
+end
+
+post '/highlight' do
+  @index = params[:index]
+  #highlight
+  erb :index
 end
 
 
