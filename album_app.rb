@@ -14,6 +14,12 @@ get '/year' do
   # albumList.sortBy(request.path.delete_prefix('/'))
 end
 
+post '/highlight' do
+  @index = params[:index]
+  #highlight(index)
+  erb :index
+end
+
 
 # class AlbumApp
 #
