@@ -1,19 +1,18 @@
-class AlbumList
+# class AlbumList
 
   ALBUMS_SOURCE = "top_100_albums.txt"
 
-  def initialize(albums)
-    @albums = File.foreach(ALBUMS_SOURCE).map { |line| line.split(', ') }
+  attr_accessor :albums
+
+  def initialize()
+    @albums = []
+    CSV.foreach_with_index(ALBUMS_SOURCE) do |line, i|
+      @albums << Album.new(i+1, line[0], line[1])
+    end
   end
 
-  def sort(request)
-      if '/' == request.path
-        albumArrayOut = albumArray
-      elsif '/title' == request.path
-        albumArrayOut = albumArray.sort_by { |o| o[:title] }
-      elsif '/year' == request.path
-        albumArrayOut = albumArray.sort_by { |o| o[:year] }
-      end
+  def sortBy(attribute)
+    @albums.sort_by { |o| o.send(attribute.to_sym) }
   end
 
 end

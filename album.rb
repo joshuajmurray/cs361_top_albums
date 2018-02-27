@@ -1,5 +1,6 @@
 class Album
-  def initialize(rank, tile, year)
+  attr_accessor :rank, :title, :year 
+  def initialize(rank, title, year)
     @rank = rank
     @title = title
     @year = year
