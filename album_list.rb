@@ -1,4 +1,4 @@
-# class AlbumList
+class AlbumList
 
   ALBUMS_SOURCE = "top_100_albums.txt"
 

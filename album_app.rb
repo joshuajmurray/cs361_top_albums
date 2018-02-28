@@ -7,11 +7,11 @@ get '/' do
 end
 
 get '/title' do
-  # albumList.sortBy(request.path.delete_prefix('/'))
+  albumList.sortBy(request.path.delete_prefix('/'))
 end
 
 get '/year' do
-  # albumList.sortBy(request.path.delete_prefix('/'))
+  albumList.sortBy(request.path.delete_prefix('/'))
 end
 
 post '/highlight' do
