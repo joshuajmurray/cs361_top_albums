@@ -28,14 +28,15 @@
       <th>Date Released</th>
     </tr>
     <% @albums.each do |album| %>
-      <% if @album.rank == highlight %>
+      <% puts album.title %>
+      <% if album.rank == @highlight %>
         <tr style='background-color: orange'>
       <% else %>
         <tr>
       <% end %>
-        <th><% @album.rank %></th>
-        <th><% @album.title %></th>
-        <th><% @album.year %></th>
+        <th><%= album.rank %></th>
+        <th><%= album.title %></th>
+        <th><%= album.year %></th>
       </tr>
     <% end %>
   </table>
