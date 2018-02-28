@@ -1,6 +1,5 @@
 require 'csv'
 require_relative 'album'
-
 class AlbumList
 
   ALBUMS_SOURCE = 'top_100_albums.txt'

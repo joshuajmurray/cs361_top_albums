@@ -9,7 +9,7 @@
 
   <h2 style='display:inline'>Sort By:</h2>
   <a href='/' style='margin-left:1em'><button>Rank</button></a>
-  <a href='/rank'><button>Title</button></a>
+  <a href='/title'><button>Title</button></a>
   <a href='/year'><button>Year</button></a>
 
   <br><br>
@@ -27,6 +27,17 @@
       <th>Album Name</th>
       <th>Date Released</th>
     </tr>
+    <% @albums.each do |album| %>
+      <% if @album.rank == highlight %>
+        <tr style='background-color: orange'>
+      <% else %>
+        <tr>
+      <% end %>
+        <th><% @album.rank %></th>
+        <th><% @album.title %></th>
+        <th><% @album.year %></th>
+      </tr>
+    <% end %>
   </table>
 
   </body>
