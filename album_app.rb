@@ -3,12 +3,13 @@ require_relative 'album_list'
 
 albumList = AlbumList.new
 get '/' do
-  erb :index
+  albumList.sortBy(request.path.delete_prefix('/'))
+  # erb :index
 end
   
 get '/title' do
   albumList.sortBy(request.path.delete_prefix('/'))
-  erb :index
+  # erb :index
 end
 
 get '/year' do
