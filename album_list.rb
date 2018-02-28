@@ -15,10 +15,29 @@ class AlbumList
     end
   end
 
+  # def sortBy(attribute)
+  #   # puts "attribute: " + attribute
+  #   # @albums.sort_by { |o| o.send(attribute.to_sym) }
+  #   @albums.sort_by { |o| o.year }
+  #   puts @albums[0].rank.to_s + @albums[0].year + @albums[0].title
+  # end
+
   def sortBy(attribute)
-    # puts "attribute: " + attribute
-    # @albums.sort_by { |o| o.send(attribute.to_sym) }
-    @albums.sort_by { |o| o.year }
+    # @current_sort_order = attribute
+
+    if attribute == 'title'
+      puts "title sort"
+      @albums = @albums.sort_by{|album| album.title}
+    elsif attribute == 'year'
+      puts "year sort"
+      @albums = @albums.sort_by{|album| album.year}
+    else
+      puts "rank sort"
+      @albums = @albums.sort_by{|album| album.rank}
+    end
+    puts "first album from sort:"
+    puts @albums[0].rank.to_s + @albums[0].year + @albums[0].title
+
   end
 
 end
