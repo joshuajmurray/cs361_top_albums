@@ -1,13 +1,14 @@
 require 'sinatra'
 require_relative 'album_list'
 
-# albumList = AlbumList.new
+albumList = AlbumList.new
 get '/' do
   erb :index
 end
-
+  
 get '/title' do
-  # albumList.sortBy(request.path.delete_prefix('/'))
+  albumList.sortBy(request.path.delete_prefix('/'))
+  erb :index
 end
 
 get '/year' do
