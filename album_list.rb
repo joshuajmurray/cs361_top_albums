@@ -11,19 +11,15 @@ class AlbumList
     @albums = []
     CSV.foreach(ALBUMS_SOURCE).with_index(0) do |line, i|
       @albums << Album.new(i+1, line[0], line[1].delete_prefix(' '))
-      # puts @albums[i].rank.to_s + @albums[i].year + @albums[i].title
     end
   end
 
-  # def sortBy(attribute)
-  #   # puts "attribute: " + attribute
+  # def sortBy(attribute)#couldn't get this to work.. 
   #   # @albums.sort_by { |o| o.send(attribute.to_sym) }
-  #   @albums.sort_by { |o| o.year }
-  #   puts @albums[0].rank.to_s + @albums[0].year + @albums[0].title
   # end
 
   def sortBy(attribute)
-    # @current_sort_order = attribute
+    @current_sort_order = attribute
 
     if attribute == 'title'
       puts "title sort"
@@ -35,8 +31,6 @@ class AlbumList
       puts "rank sort"
       @albums = @albums.sort_by{|album| album.rank}
     end
-    puts "first album from sort:"
-    puts @albums[0].rank.to_s + @albums[0].year + @albums[0].title
 
   end
 
