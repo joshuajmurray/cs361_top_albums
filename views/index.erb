@@ -14,8 +14,8 @@
 
   <br><br>
 
-  <form method='post' action='/highlight'>
-    <input type='number' name='highlight'>
+  <form method='post' action='/'>
+    <input type='number' name='index'>
     <button type='submit'>Highlight</button>
   </form>
 
@@ -28,8 +28,7 @@
       <th>Date Released</th>
     </tr>
     <% @albums.each do |album| %>
-      <% puts album.title %>
-      <% if album.rank == @highlight %>
+      <% if album.rank == @index %>
         <tr style='background-color: orange'>
       <% else %>
         <tr>

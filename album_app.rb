@@ -20,9 +20,9 @@ get '/year' do
   erb :index
 end
 
-post '/highlight' do
-  @index = params[:index]
-  #highlight(index)
+post '/' do
+  @index = params[:index].to_i
+  @albums = albumList.albums
   erb :index
 end
 
